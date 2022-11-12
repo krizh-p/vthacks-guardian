@@ -3,19 +3,27 @@ package com.vthacks.vthacksguardian;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    private ImageView HelloViewBackgroundImage;
+    @FXML
+    private Button fileButton;
+    @FXML
+    private Button socialButton;
+    @FXML
+    private Button emailButton;
+    @FXML
+    private AnchorPane HomeScreenAnchorPane;
+
     @FXML
     protected void onFileScanButtonClick() throws IOException {
     //welcomeText.setText("File Scan!!!"); //temp
@@ -28,6 +36,7 @@ public class HelloController {
         //Launch
         newWindow.show();
     }
+
     @FXML
     protected void onSocialTraceButtonClick() throws IOException {
         //welcomeText.setText("Social Media Trace!!!"); //temp
@@ -40,6 +49,7 @@ public class HelloController {
         //Launch
         newWindow.show();
     }
+
     @FXML
     protected void onEmailButtonClick() throws IOException {
         //welcomeText.setText("Email Security!!!"); //temp

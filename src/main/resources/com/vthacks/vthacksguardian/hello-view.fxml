@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="516.0" prefWidth="630.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <Button onAction="#onEmailButtonClick" text="Email Security" />
-   <Button onAction="#onSocialTraceButtonClick" text="Social Media Trace" />
-   <Button onAction="#onFileScanButtonClick" text="File Scan" />
-
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
-</VBox>
+<AnchorPane fx:id="HomeScreenAnchorPane" prefHeight="540.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.HelloController">
+    <children>
+        <ImageView fx:id="HelloViewBackgroundImage" fitHeight="540.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/hello-view.jpg" />
+            </image>
+        </ImageView>
+        <Button layoutX="226.0" layoutY="423.0" mnemonicParsing="false" opacity="0.0" prefHeight="83.0" prefWidth="172.0" text="Button" />
+        <Button fx:id="fileButton" layoutX="226.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#onFileScanButtonClick" opacity="0.0" prefHeight="83.0" prefWidth="172.0" text="Button" />
+        <Button fx:id="socialButton" layoutX="227.0" layoutY="229.0" mnemonicParsing="false" onMouseClicked="#onSocialTraceButtonClick" opacity="0.0" prefHeight="83.0" prefWidth="172.0" text="Button" />
+        <Button fx:id="emailButton" layoutX="227.0" layoutY="134.0" mnemonicParsing="false" onMouseClicked="#onEmailButtonClick" opacity="0.0" prefHeight="83.0" prefWidth="172.0" text="Button" />
+    </children>
+</AnchorPane>
