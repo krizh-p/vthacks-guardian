@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.kanishka.api:VirustotalPublicV2.0:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/kanishka/api/VirustotalPublicV2.0/1.0-SNAPSHOT/VirustotalPublicV2.0-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/kanishka/api/VirustotalPublicV2.0/1.0-SNAPSHOT/VirustotalPublicV2.0-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/kanishka/api/VirustotalPublicV2.0/1.0-SNAPSHOT/VirustotalPublicV2.0-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
