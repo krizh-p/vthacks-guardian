@@ -6,7 +6,7 @@
 
 <AnchorPane fx:id="emailAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.EmailViewController">
     <children>
-      <ImageView fitHeight="540.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backgroundEmailView" fitHeight="540.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../src/main/resources/com/vthacks/vthacksguardian/assets/emailView.jpg" />
          </image></ImageView>
