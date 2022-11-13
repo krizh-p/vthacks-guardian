@@ -15,4 +15,19 @@ public class EmailViewResultsController {
     @FXML
     private ImageView backgroundViewResults;
 
+    @FXML
+    private Button userEmail;
+
+    @FXML
+    private Button userReputation;
+
+    @FXML
+    private Button userSuspicion;
+
+    @FXML
+    private Button userCredentialsLeak;
+
+    @FXML
+    private Button userDataBreach;
+
 }
