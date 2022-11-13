@@ -6,11 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     public static Stage stage;
     public static Scene scene;
-
+    public static ArrayList<String> parsedData;
     @Override
     public void start(Stage stage) throws IOException {
         HelloApplication.stage = stage;

@@ -68,22 +68,22 @@ public class EmailViewController implements Initializable {
 
                     System.out.println("Parsed Data: "  + informationString);
 
-                    ArrayList<String> parsedData = new ArrayList<>();
+                    HelloApplication.parsedData = new ArrayList<>();
                     //JSON simple library Setup with Maven is used to convert strings to JSON
                     JSONParser parse = new JSONParser();
                     JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(informationString));
-                    JSONObject data = (JSONObject) dataObject.get(0);
-                    parsedData.add((String) data.get("email"));
-                    parsedData.add((String) data.get("reputation"));
-                    parsedData.add((String) data.get("suspicious"));
-                    parsedData.add((String) data.get("credentials_leaked"));
-                    parsedData.add((String) data.get("data_breach"));
-
-
-
 
                     //Get the first JSON object in the JSON array
-                    System.out.println(dataObject.get(0));
+                    JSONObject data = (JSONObject) dataObject.get(0);
+                    HelloApplication.parsedData.add((String) data.get("email"));
+                    HelloApplication.parsedData.add((String) data.get("reputation"));
+                    HelloApplication.parsedData.add((String) data.get("suspicious"));
+                    HelloApplication.parsedData.add((String) data.get("credentials_leaked"));
+                    HelloApplication.parsedData.add((String) data.get("data_breach"));
+
+
+
+
 
 
                 }
