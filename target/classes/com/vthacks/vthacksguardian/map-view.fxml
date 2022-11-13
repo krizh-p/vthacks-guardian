@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.SocialTraceController">
+   <children>
+      <ImageView fitHeight="310.0" fitWidth="560.0" layoutX="18.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/map.png" />
+         </image></ImageView>
+      <Label layoutX="97.0" layoutY="24.0" prefHeight="46.0" prefWidth="352.0" text="FOUND YA!" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="41.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

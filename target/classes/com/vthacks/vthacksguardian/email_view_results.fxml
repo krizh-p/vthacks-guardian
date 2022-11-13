@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -10,5 +11,10 @@
             <Image url="@assets/emailViewResults.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="userEmail" layoutX="302.0" layoutY="108.0" mnemonicParsing="false" />
+      <Button fx:id="userReputation" layoutX="302.0" layoutY="182.0" mnemonicParsing="false" />
+      <Button fx:id="userSuspicion" layoutX="302.0" layoutY="257.0" mnemonicParsing="false" />
+      <Button fx:id="userCredentialsLeak" layoutX="302.0" layoutY="333.0" mnemonicParsing="false" />
+      <Button fx:id="userDataBreach" layoutX="302.0" layoutY="413.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>
