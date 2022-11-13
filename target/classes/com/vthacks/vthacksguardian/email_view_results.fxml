@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorEmailViewResults" prefHeight="540.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.EmailViewResultsController">
+<AnchorPane fx:id="anchorEmailViewResults" prefHeight="540.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vthacks.vthacksguardian.EmailViewResultsController">
    <children>
       <ImageView fx:id="backgroundViewResults" fitHeight="540.0" fitWidth="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/emailViewResults.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="emailLabel" layoutX="191.0" layoutY="97.0" prefHeight="47.0" prefWidth="235.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="reputationLabel" layoutX="191.0" layoutY="171.0" prefHeight="47.0" prefWidth="235.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="userSuspicion" layoutX="193.0" layoutY="247.0" prefHeight="47.0" prefWidth="235.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="userCredentialsLeak" layoutX="193.0" layoutY="325.0" prefHeight="47.0" prefWidth="235.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="userDataBreach" layoutX="193.0" layoutY="401.0" prefHeight="47.0" prefWidth="235.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,13 +1,30 @@
 package com.vthacks.vthacksguardian;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class EmailViewResultsController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EmailViewResultsController implements Initializable {
+
+    @FXML
+    private Label userSuspicion;
+
+    @FXML
+    private Label emailLabel;
+
+    @FXML
+    private Label userCredentialsLeak;
+
+    @FXML
+    private Label userDataBreach;
+
+    @FXML
+    private Label reputationLabel;
 
     @FXML
     private AnchorPane anchorEmailViewResults;
@@ -15,19 +32,12 @@ public class EmailViewResultsController {
     @FXML
     private ImageView backgroundViewResults;
 
-    @FXML
-    private Button userEmail;
-
-    @FXML
-    private Button userReputation;
-
-    @FXML
-    private Button userSuspicion;
-
-    @FXML
-    private Button userCredentialsLeak;
-
-    @FXML
-    private Button userDataBreach;
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        emailLabel.setText(HelloApplication.parsedData.get(0));
+        reputationLabel.setText(HelloApplication.parsedData.get(1));
+        userSuspicion.setText(HelloApplication.parsedData.get(2));
+        userCredentialsLeak.setText(HelloApplication.parsedData.get(3));
+        userDataBreach.setText(HelloApplication.parsedData.get(4));
+    }
 }

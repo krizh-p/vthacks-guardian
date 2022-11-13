@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class HelloApplication extends Application {
     public static Stage stage;
     public static Scene scene;
-    public static ArrayList<String> parsedData;
+    public static ArrayList<String> parsedData = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
         HelloApplication.stage = stage;

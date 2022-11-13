@@ -41,8 +41,10 @@ public class EmailViewController implements Initializable {
             String str = emailTextInput.getText();
 
             try {
+                HelloApplication.parsedData.add(str);
                 str = str.replace("@", "%40");
                 URL url = new URL("https://emailrep.io/" + str);
+
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET"); //requests
@@ -54,9 +56,12 @@ public class EmailViewController implements Initializable {
 
                 // 200 OK
                 if (responseCode != 200) {
+                    HelloApplication.parsedData.add("Reputation: Request Blocked");
+                    HelloApplication.parsedData.add("Suspicious Activity: Request Blocked");
+                    HelloApplication.parsedData.add("Credentials Leaked: Request Blocked");
+                    HelloApplication.parsedData.add("Data Breached: Request Blocked");
                     throw new RuntimeException("HttpResponseCode: " + responseCode);
                 } else {
-
                     StringBuilder informationString = new StringBuilder();
                     Scanner scanner = new Scanner(url.openStream());
 
@@ -75,24 +80,14 @@ public class EmailViewController implements Initializable {
 
                     //Get the first JSON object in the JSON array
                     JSONObject data = (JSONObject) dataObject.get(0);
-                    HelloApplication.parsedData.add((String) data.get("email"));
                     HelloApplication.parsedData.add((String) data.get("reputation"));
                     HelloApplication.parsedData.add((String) data.get("suspicious"));
                     HelloApplication.parsedData.add((String) data.get("credentials_leaked"));
                     HelloApplication.parsedData.add((String) data.get("data_breach"));
-
-
-
-
-
-
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-
 
             Parent rootPlayerSelectScreen = null;
             try {
