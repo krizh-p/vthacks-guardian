@@ -18,7 +18,17 @@ public class Test {
 
 
         try {
-
+//            AsyncHttpClient client = new DefaultAsyncHttpClient();
+//            client.prepare("POST", "https://www.virustotal.com/vtapi/v2/file/scan")
+//                    .setHeader("accept", "text/plain")
+//                    .setHeader("content-type", "application/x-www-form-urlencoded")
+//                    .setBody("apikey=b62a8a6f76425ac14618a24760176fcfc9fabc5c366cf4b42200420fe69b3af5")
+//                    .execute()
+//                    .toCompletableFuture()
+//                    .thenAccept(System.out::println)
+//                    .join();
+//
+//            client.close();
 
 
             HttpRequest postRequest = (HttpRequest) HttpRequest.newBuilder()
