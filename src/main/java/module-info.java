@@ -4,6 +4,7 @@ module com.vthacks.vthacksguardian {
 
     requires org.controlsfx.controls;
     requires json.simple;
+    requires java.net.http;
 
     opens com.vthacks.vthacksguardian to javafx.fxml;
     exports com.vthacks.vthacksguardian;

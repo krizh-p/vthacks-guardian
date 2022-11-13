@@ -5,41 +5,33 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.net.URI;
+import java.net.http.HttpRequest;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-//        OkHttpClient client = new OkHttpClient();
-//
-//        Request request = new Request.Builder()
-//                .url("https://emailrep.io/krizh822%40gmail.com")
-//                .get()
-//                .addHeader("accept", "application/json")
-//                .build();
-//
-//        Response response = client.newCall(request).execute();
 
-         /*
-        Maven dependency for JSON-simple:
-            <dependency>
-                <groupId>com.googlecode.json-simple</groupId>
-                <artifactId>json-simple</artifactId>
-                <version>1.1.1</version>
-            </dependency>
-         */
+
 
         try {
-            //Public API:
-            //https://www.metaweather.com/api/location/search/?query=<CITY>
-            //https://www.metaweather.com/api/location/44418/
 
-            URL url = new URL("https://emailrep.io/krizh822%40gmail.com");
+
+
+            HttpRequest postRequest = (HttpRequest) HttpRequest.newBuilder()
+                    .uri(new URI("https://www.virustotal.com/vtapi/v2/file/scan"))
+                    .setHeader("accept", "text/plain")
+                    .setHeader("content-type", "content-type\", \"application/x-www-form-urlencoded");
+
+            URL url = new URL("https://www.virustotal.com/vtapi/v2/file/scan");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET"); //requests
-            conn.setRequestProperty("accept", "application/json"); //header
+            conn.setRequestProperty("accept", "text/plain"); //header
+            conn.setRequestProperty("content-type", "application/x-www-form-urlencoded");
             conn.connect();
 
             //Check if connect is made
