@@ -1,7 +1,10 @@
 package com.vthacks.vthacksguardian;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -11,8 +14,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -31,49 +37,71 @@ public class EmailViewController implements Initializable {
 
     @Override
     public void initialize(URL currUrl, ResourceBundle resourceBundle) {
-        String str = emailRunButton.getText();
-        try {
-            str = str.replace("@", "%40");
-            URL url = new URL("https://emailrep.io/" + str);
+        emailRunButton.setOnMouseClicked(event -> {
+            String str = emailTextInput.getText();
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET"); //requests
-            conn.setRequestProperty("accept", "application/json"); //header
-            conn.connect();
+            try {
+                str = str.replace("@", "%40");
+                URL url = new URL("https://emailrep.io/" + str);
 
-            //Check if connect is made
-            int responseCode = conn.getResponseCode();
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET"); //requests
+                conn.setRequestProperty("accept", "application/json"); //header
+                conn.connect();
 
-            // 200 OK
-            if (responseCode != 200) {
-                throw new RuntimeException("HttpResponseCode: " + responseCode);
-            } else {
+                //Check if connect is made
+                int responseCode = conn.getResponseCode();
 
-                StringBuilder informationString = new StringBuilder();
-                Scanner scanner = new Scanner(url.openStream());
+                // 200 OK
+                if (responseCode != 200) {
+                    throw new RuntimeException("HttpResponseCode: " + responseCode);
+                } else {
 
-                while (scanner.hasNext()) {
-                    informationString.append(scanner.nextLine());
+                    StringBuilder informationString = new StringBuilder();
+                    Scanner scanner = new Scanner(url.openStream());
+
+                    while (scanner.hasNext()) {
+                        informationString.append(scanner.nextLine());
+                    }
+                    //Close the scanner
+                    scanner.close();
+
+                    System.out.println("Parsed Data: "  + informationString);
+
+                    ArrayList<String> parsedData = new ArrayList<>();
+                    //JSON simple library Setup with Maven is used to convert strings to JSON
+                    JSONParser parse = new JSONParser();
+                    JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(informationString));
+                    JSONObject data = (JSONObject) dataObject.get(0);
+                    parsedData.add((String) data.get("email"));
+                    parsedData.add((String) data.get("reputation"));
+                    parsedData.add((String) data.get("suspicious"));
+                    parsedData.add((String) data.get("credentials_leaked"));
+                    parsedData.add((String) data.get("data_breach"));
+
+
+
+
+                    //Get the first JSON object in the JSON array
+                    System.out.println(dataObject.get(0));
+
+
                 }
-                //Close the scanner
-                scanner.close();
-
-                System.out.println("Parsed Data: "  + informationString);
-
-
-                //JSON simple library Setup with Maven is used to convert strings to JSON
-                JSONParser parse = new JSONParser();
-                JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(informationString));
-                JSONObject data = (JSONObject) dataObject.get(0);
-
-                //Get the first JSON object in the JSON array
-                System.out.println(dataObject.get(0));
-
-
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
+
+
+
+            Parent rootPlayerSelectScreen = null;
+            try {
+                rootPlayerSelectScreen = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("email_view_results.fxml")));
+                HelloApplication.scene = new Scene(rootPlayerSelectScreen, 620, 540);
+                HelloApplication.stage.setScene(HelloApplication.scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
