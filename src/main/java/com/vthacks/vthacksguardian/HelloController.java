@@ -14,6 +14,13 @@ import java.io.IOException;
 public class HelloController {
 
     @FXML
+    public ImageView afterDragged;
+    @FXML
+    public ImageView dragDropImage;
+
+    @FXML
+    public Button dragFileHereButton;
+    @FXML
     private ImageView HelloViewBackgroundImage;
     @FXML
     private Button fileButton;
@@ -35,6 +42,12 @@ public class HelloController {
         newWindow.setScene(new Scene(loader.load()));
         //Launch
         newWindow.show();
+    }
+
+    @FXML
+    protected  void onFileDragged() {
+        afterDragged.setOpacity(1);
+        dragDropImage.setOpacity(0);
     }
 
     @FXML
